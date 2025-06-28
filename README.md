@@ -2,7 +2,7 @@
 
 Welcome to **AgenticU** — a curated, multi-project teaching repository focused on building modern Agentic AI systems with LLMs.
 
-This project is built from my teaching journeys across Taiwan: in classrooms, workshops, and corporate trainings.  
+This project is built from my teaching journeys across Everywhere: in classrooms, workshops, and corporate trainings.  
 Inside, you’ll find **hands-on tutorials, code examples, and full project demos** built with the latest frameworks in the LLM agent ecosystem, including:
 
 - LangChain
@@ -13,6 +13,7 @@ Inside, you’ll find **hands-on tutorials, code examples, and full project demo
 - OpenAI Function Calling
 - More coming soon...
 
+I'll update this repo every week. If you have any questions, please feel free to ask. Your Stars are my motivation to continue updating this repo.🤩 
 ---
 
 ## 🧩 What's Inside?
@@ -33,6 +34,18 @@ agentic_u/
 ├── agentic_ui_streamlit/
 ├── notebook_demos/
 ```
+
+---
+
+## 📜 Archived History
+
+Looking for the full archive from my previous teaching repo?  
+You’ll find detailed update logs, course plans, and project notes in:
+
+👉 [`README_old.md`](.Old_README.md)
+
+This archive comes from my original repo —  
+`AgenticAI_LLMs_Amazing_courses_Langchain_LlamaIndex` — which once had over 25stars before deletion.
 
 ---
 
