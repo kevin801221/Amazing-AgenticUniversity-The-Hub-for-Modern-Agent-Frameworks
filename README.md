@@ -55,12 +55,15 @@ This archive comes from my original repo —
 | `langgraph_agents/` | Stateful agents with LangGraph |
 | `autogen_planner/` | Multi-agent coordination using AutoGen |
 | `Agentic_Stock_Insight/` | An application for stock data insights, combining RAG workflows to extract insights from news and financial data. |
+| `Short-Long_term_memory_simulation/` | An application for simulating short and long term memory |
 
 <!-- Keep join -->
 
 ---
 
 ## 🆕 Update Log     
+
+- **2025/06/29** — Added `Short-Long_term_memory_simulation/` with short and long term memory simulation, that uses LangGraph to simulate a conversation between human philosophers.     
 - **2025/06/29** — Added `Agentic_Stock_Insight/` with stock data analysis and news RAG workflows      
 - **2025/06/27** — Initial repo relaunch, added ``, ``
 - **2025/06/29** — Added `notebook_demos/` with Streamlit + RAG examples
