@@ -54,14 +54,17 @@ This archive comes from my original repo —
 |--------|-------------|
 | `langgraph_agents/` | Stateful agents with LangGraph |
 | `autogen_planner/` | Multi-agent coordination using AutoGen |
+| `Agentic_Stock_Insight/` | An application for stock data insights, combining RAG workflows to extract insights from news and financial data. |
 
 <!-- Keep join -->
 
 ---
 
-## 🆕 Update Log           
+## 🆕 Update Log     
+- **2025/06/29** — Added `Agentic_Stock_Insight/` with stock data analysis and news RAG workflows      
 - **2025/06/27** — Initial repo relaunch, added ``, ``
 - **2025/06/29** — Added `notebook_demos/` with Streamlit + RAG examples
+
 
 ---
 
