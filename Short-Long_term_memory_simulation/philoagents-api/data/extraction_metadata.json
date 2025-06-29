@@ -1,0 +1,54 @@
+[
+    {
+        "id": "plato",
+        "urls": [
+            "https://plato.stanford.edu/entries/plato/"
+        ]
+    },
+    {
+        "id": "aristotle",
+        "urls": [
+            "https://plato.stanford.edu/entries/aristotle/"
+        ]
+    },
+    {
+        "id": "socrates",
+        "urls": [
+            "https://plato.stanford.edu/entries/socrates/"
+        ]
+    },
+    {
+        "id": "descartes",
+        "urls": [
+            "https://plato.stanford.edu/entries/descartes/"
+        ]
+    },
+    {
+        "id": "leibniz",
+        "urls": [
+            "https://plato.stanford.edu/entries/leibniz/"
+        ]
+    },
+    {
+        "id": "ada_lovelace",
+        "urls": []
+    },
+    {
+        "id": "turing",
+        "urls": [
+            "https://plato.stanford.edu/entries/turing/"
+        ]
+    },
+    {
+        "id": "searle",
+        "urls": []
+    },
+    {
+        "id": "chomsky",
+        "urls": []
+    },
+    {
+        "id": "dennett",
+        "urls": []
+    }
+]
