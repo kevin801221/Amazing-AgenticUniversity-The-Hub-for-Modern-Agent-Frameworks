@@ -1,0 +1,9 @@
+{
+    "dependencies": [
+        "."
+    ],
+    "graphs": {
+        "research_agent": "agent.graph:create_compiled_graph"
+    },
+    "env": ".env"
+}
