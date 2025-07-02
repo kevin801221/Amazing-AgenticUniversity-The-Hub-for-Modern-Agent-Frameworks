@@ -45,7 +45,7 @@ You’ll find detailed update logs, course plans, and project notes in:
 👉 [`README_old.md`](.Old_README.md)
 
 This archive comes from my original repo —  
-`AgenticAI_LLMs_Amazing_courses_Langchain_LlamaIndex` — which once had over 25stars before deletion.
+`AgenticAI_LLMs_Amazing_courses_Langchain_LlamaIndex` — which once had over 29stars before deletion.
 
 ---
 
