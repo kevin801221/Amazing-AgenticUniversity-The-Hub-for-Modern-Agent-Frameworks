@@ -1,0 +1,61 @@
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[project]
+name = "langgraph-bigtool"
+version = "0.0.3"
+description = "Build LangGraph agents with large numbers of tools"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=0.3.0",
+]
+
+[dependency-groups]
+test = [
+    "numpy>=1",
+    "pytest>=8.0.0",
+    "ruff>=0.9.4",
+    "mypy>=1.8.0",
+    "pytest-socket>=0.7.0",
+    "pytest-asyncio>=0.21.1",
+    "types-setuptools>=69.0.0",
+]
+test_integration = [
+    "langchain[openai]>=0.3.20",
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q -v"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+ignore = [
+  "E501" # line-length
+]
+
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
