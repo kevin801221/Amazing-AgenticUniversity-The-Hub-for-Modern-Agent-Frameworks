@@ -57,6 +57,7 @@ This archive comes from my original repo —
 | `Agentic_Stock_Insight/` | An application for stock data insights, combining RAG workflows to extract insights from news and financial data. |
 | `Short-Long_term_memory_simulation/` | An application for simulating short and long term memory |
 | `ai-agent-papers/` | A curated collection of research papers on AI Agents, covering capabilities, architectures, and real-world applications, updated biweekly. |
+| `context-Engineering/` | A complete tutorial on context engineering for AI agents. |
 
 <!-- Keep join -->
 
@@ -64,6 +65,7 @@ This archive comes from my original repo —
 
 ## 🆕 Update Log     
 
+- **2025/07/03** — Added `context-Engineering/` with a complete tutorial on context engineering for AI agents.
 - **2025/07/01** — Added `ai-agent-papers/` with a curated collection of research papers on AI Agents.
 - **2025/06/29** — Added `Short-Long_term_memory_simulation/` with short and long term memory simulation, that uses LangGraph to simulate a conversation between human philosophers.     
 - **2025/06/29** — Added `Agentic_Stock_Insight/` with stock data analysis and news RAG workflows      
