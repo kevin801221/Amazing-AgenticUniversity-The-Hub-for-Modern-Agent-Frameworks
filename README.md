@@ -13,7 +13,7 @@ Inside, you’ll find **hands-on tutorials, code examples, and full project demo
 - OpenAI Function Calling
 - More coming soon...
 
-I'll update this repo every week. If you have any questions, please feel free to ask. ""Your Stars are my motivation"" to continue updating this repo.🤩 
+I'll update this repo every week, even every day maybe. If you have any questions, please feel free to ask. ""Your Stars are my motivation"" to continue updating this repo.🤩 
 ---
 
 ## 🧩 What's Inside?
