@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <title>股票資料洞察前端介面</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container my-4">
+    <h1>股票資料洞察前端介面</h1>
+    <hr>
+
+    <!-- 股價統計 -->
+    <section class="mb-5">
+      <h2>股價統計 (Price Stats)</h2>
+      <form id="price-stats-form" class="row g-2">
+        <div class="col-md-3">
+          <input type="text" id="ps-ticker" class="form-control" placeholder="股票代碼 (e.g. AAPL)" required>
+        </div>
+        <div class="col-md-2">
+          <select id="ps-operation" class="form-select" required>
+            <option value="" disabled selected>操作</option>
+            <option value="highest">最高</option>
+            <option value="lowest">最低</option>
+            <option value="average">平均</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select id="ps-price_type" class="form-select" required>
+            <option value="" disabled selected>價格類型</option>
+            <option value="open">開盤價</option>
+            <option value="close">收盤價</option>
+            <option value="high">最高價</option>
+            <option value="low">最低價</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select id="ps-duration" class="form-select" required>
+            <option value="" disabled selected>天數</option>
+            <option value="1">1</option>
+            <option value="7">7</option>
+            <option value="14">14</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button type="submit" class="btn btn-primary w-100">查詢統計</button>
+        </div>
+      </form>
+      <pre id="price-stats-result" class="mt-3 bg-light p-3"></pre>
+    </section>
+
+    <!-- 股價圖表 -->
+    <section class="mb-5">
+      <h2>股價圖表 (Chart)</h2>
+      <form id="chart-form" class="row g-2">
+        <div class="col-md-3">
+          <input type="text" id="chart-ticker" class="form-control" placeholder="股票代碼 (e.g. AAPL)" required>
+        </div>
+        <div class="col-md-3">
+          <select id="chart-price_type" class="form-select" required>
+            <option value="" disabled selected>價格類型</option>
+            <option value="open">開盤價</option>
+            <option value="close">收盤價</option>
+            <option value="high">最高價</option>
+            <option value="low">最低價</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select id="chart-duration" class="form-select" required>
+            <option value="" disabled selected>天數</option>
+            <option value="1">1</option>
+            <option value="7">7</option>
+            <option value="14">14</option>
+            <option value="30">30</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-primary w-100">查詢圖表</button>
+        </div>
+      </form>
+      <pre id="chart-result" class="mt-3 bg-light p-3"></pre>
+    </section>
+
+    <!-- 新聞查詢 -->
+    <section class="mb-5">
+      <h2>新聞查詢 (News)</h2>
+      <form id="news-form" class="row g-2">
+        <div class="col-md-3">
+          <input type="text" id="news-ticker" class="form-control" placeholder="股票代碼 (e.g. AAPL)" required>
+        </div>
+        <div class="col-md-4">
+          <input type="text" id="news-topic" class="form-control" placeholder="主題 (可選)">
+        </div>
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-primary w-100">查詢新聞</button>
+        </div>
+      </form>
+      <pre id="news-result" class="mt-3 bg-light p-3"></pre>
+    </section>
+  </div>
+
+  <script>
+    async function fetchPriceStats(e) {
+      e.preventDefault();
+      const t = document.getElementById("ps-ticker").value.trim().toUpperCase(),
+            op = document.getElementById("ps-operation").value,
+            pt = document.getElementById("ps-price_type").value,
+            d = document.getElementById("ps-duration").value,
+            url = `/stock/${t}/price-stats?operation=${op}&price_type=${pt}&duration=${d}`,
+            r = await fetch(url), j = await r.json();
+      document.getElementById("price-stats-result").textContent = JSON.stringify(j, null, 2);
+    }
+    document.getElementById("price-stats-form").addEventListener("submit", fetchPriceStats);
+
+    async function fetchChart(e) {
+      e.preventDefault();
+      const t = document.getElementById("chart-ticker").value.trim().toUpperCase(),
+            pt = document.getElementById("chart-price_type").value,
+            d = document.getElementById("chart-duration").value,
+            url = `/stock/${t}/chart?price_type=${pt}&duration=${d}`,
+            r = await fetch(url), j = await r.json();
+      document.getElementById("chart-result").textContent = JSON.stringify(j, null, 2);
+    }
+    document.getElementById("chart-form").addEventListener("submit", fetchChart);
+
+    async function fetchNews(e) {
+      e.preventDefault();
+      const t = document.getElementById("news-ticker").value.trim().toUpperCase(),
+            tp = document.getElementById("news-topic").value.trim(),
+            q = `/news/${t}` + (tp ? `?topic=${encodeURIComponent(tp)}` : ""),
+            r = await fetch(q), j = await r.json();
+      document.getElementById("news-result").textContent = JSON.stringify(j, null, 2);
+    }
+    document.getElementById("news-form").addEventListener("submit", fetchNews);
+  </script>
+</body>
+</html>

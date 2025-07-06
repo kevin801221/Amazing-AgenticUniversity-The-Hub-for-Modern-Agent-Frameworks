@@ -1,0 +1,12 @@
+{
+    "SCRAPE_TICKERS": [
+        "AAPL", "MSFT", "GOOG", "AMZN", "TSLA", "NVDA", "BRK-B", "META",
+        "UNH", "JNJ", "V", "PG", "XOM", "JPM", "WMT", "MA", "CVX", "LLY",
+        "PFE", "HD", "KO", "ABBV", "PEP", "MRK", "BAC", "TMO", "AVGO",
+        "COST", "DIS", "CSCO", "DHR", "TMUS", "MCD", "ADBE", "NFLX",
+        "CMCSA", "TXN", "NKE", "PM", "VZ", "INTC", "ORCL", "QCOM",
+        "ABT", "WFC", "LIN", "BMY", "ACN", "UPS", "RTX"
+    ],
+
+    "SCRAPING_INTERVAL": 86400
+}

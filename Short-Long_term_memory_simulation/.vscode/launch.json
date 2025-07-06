@@ -1,0 +1,53 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/philoagents-api",
+            "justMyCode": false,
+            "env": {
+                "MONGO_URI": "mongodb://philoagents:philoagents@localhost:27017/?directConnection=true"
+            }
+        },
+        {
+            "name": "Create Long Term Memory",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/philoagents-api",
+            "module": "tools.create_long_term_memory",
+            "args": [],
+            "justMyCode": false,
+            "env": {
+                "MONGO_URI": "mongodb://philoagents:philoagents@localhost:27017/?directConnection=true"
+            }
+        },
+        {
+            "name": "Evaluate Agent",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/philoagents-api",
+            "module": "tools.evaluate_agent",
+            "args": [],
+            "justMyCode": false,
+            "env": {
+                "MONGO_URI": "mongodb://philoagents:philoagents@localhost:27017/?directConnection=true"
+            }
+        },
+        {
+            "name": "Generate Evaluation Dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/philoagents-api",
+            "module": "tools.generate_evaluation_dataset",
+            "args": [],
+            "justMyCode": false,
+            "env": {
+                "MONGO_URI": "mongodb://philoagents:philoagents@localhost:27017/?directConnection=true"
+            }
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Dashboard</n+></head>
+<style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    table { border-collapse: collapse; width: 60%; margin-bottom: 1em; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background-color: #f2f2f2; text-align: left; }
+</style>
+<body>
+    <h1>System Dashboard</h1>
+
+    <h2>Agent Scraping Status</h2>
+    <p>Last Scrape Start: {{ last_scrape_start }}</p>
+    <p>Last Scrape End: {{ last_scrape_end }}</p>
+
+    <h2>MongoDB News Collection</h2>
+    <table>
+        <tr><th>Total News Articles</th><td>{{ total_news }}</td></tr>
+        <tr><th>Unsynced Articles</th><td>{{ unsynced_news }}</td></tr>
+    </table>
+
+    <h2>PostgreSQL Stock Data</h2>
+    <table>
+        <tr><th>Total Stock Records</th><td>{{ total_stock }}</td></tr>
+    </table>
+</body>
+</html>
