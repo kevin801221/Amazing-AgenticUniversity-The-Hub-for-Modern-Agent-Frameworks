@@ -1,39 +1,33 @@
+
+
 import tempfile
 from pyvis.network import Network
 import streamlit as st
 import streamlit.components.v1 as components
-from functions_for_pipeline import *
+from functions_for_pipeline import create_agent, PlanExecute
 
-
-def create_network_graph(current_state):
+def create_network_graph(current_state: str):
     """
     Create a network graph visualization of the agent's current state.
-
-    Args:
-        current_state (str): The current state of the agent.
-
-    Returns:
-        Network: The network graph visualization.
     """
-    net = Network(directed=True, notebook=True, height="250px", width="100%")
-    net.toggle_physics(False)  # Disable physics simulation
+    net = Network(directed=True, notebook=True, height="300px", width="100%")
+    net.toggle_physics(False)
     
     nodes = [
-        {"id": "anonymize_question", "label": "anonymize_question", "x": 0, "y": 0},
-        {"id": "planner", "label": "planner", "x": 175*1.75, "y": -100},
-        {"id": "de_anonymize_plan", "label": "de_anonymize_plan", "x": 350*1.75, "y": -100},
-        {"id": "break_down_plan", "label": "break_down_plan", "x": 525*1.75, "y": -100},
-        {"id": "task_handler", "label": "task_handler", "x": 700*1.75, "y": 0},
-        {"id": "retrieve_chunks", "label": "retrieve_chunks", "x": 875*1.75, "y": +200},
-        {"id": "retrieve_summaries", "label": "retrieve_summaries", "x": 875*1.75, "y": +100},
-        {"id": "retrieve_book_quotes", "label": "retrieve_book_quotes", "x": 875*1.75, "y": 0},
-        {"id": "answer", "label": "answer", "x": 875*1.75, "y": -100},
-        {"id": "replan", "label": "replan", "x": 1050*1.75, "y": 0},
-        {"id": "can_be_answered_already", "label": "can_be_answered_already", "x": 1225*1.75, "y": 0},
-        {"id": "get_final_answer", "label": "get_final_answer", "x": 1400*1.75, "y": 0}
+        {"id": "anonymize_question", "label": "匿名化問題", "x": 0, "y": 0},
+        {"id": "planner", "label": "規劃步驟", "x": 175*1.75, "y": -100},
+        {"id": "de_anonymize_plan", "label": "計畫去匿名化", "x": 350*1.75, "y": -100},
+        {"id": "break_down_plan", "label": "分解計畫", "x": 525*1.75, "y": -100},
+        {"id": "task_handler", "label": "任務決策", "x": 700*1.75, "y": 0},
+        {"id": "retrieve_chunks", "label": "檢索 Chunks", "x": 875*1.75, "y": 200},
+        {"id": "retrieve_summaries", "label": "檢索 Summaries", "x": 875*1.75, "y": 100},
+        {"id": "retrieve_book_quotes", "label": "檢索 Quotes", "x": 875*1.75, "y": 0},
+        {"id": "answer", "label": "根據上下文回答", "x": 875*1.75, "y": -100},
+        {"id": "replan", "label": "重新規劃", "x": 1050*1.75, "y": 0},
+        {"id": "can_be_answered_already", "label": "檢查是否可回答", "x": 1225*1.75, "y": 0},
+        {"id": "get_final_answer", "label": "生成最終答案", "x": 1400*1.75, "y": 0}
     ]
 
-    
     edges = [
         ("anonymize_question", "planner"),
         ("planner", "de_anonymize_plan"),
@@ -52,70 +46,28 @@ def create_network_graph(current_state):
         ("can_be_answered_already", "get_final_answer")
     ]
     
-    # Add nodes with conditional coloring
     for node in nodes:
-        color = "#00FF00" if node["id"] == current_state else "#FF69B4"  # Green if current, else pink
+        color = "#00FF00" if node["id"] == current_state else "#FFB6C1"
         net.add_node(node["id"], label=node["label"], x=node["x"], y=node["y"], color=color, physics=False, font={'size': 22})
     
-    # Add edges with a default color
     for edge in edges:
-        net.add_edge(edge[0], edge[1], color="#808080")  # Set edge color to gray
+        net.add_edge(edge[0], edge[1], color="#808080")
     
-    # Customize other visual aspects
-    net.options.edges.smooth.type = "straight"  # Make edges straight lines
-    net.options.edges.width = 1.5  # Set edge width
+    net.options.edges.smooth.type = "straight"
+    net.options.edges.width = 1.5
     
     return net
 
-
-def compute_initial_positions(net):
-    """
-    Compute the initial positions of the nodes in the network graph.
-
-    Args:
-        net (Network): The network graph.
-
-    Returns:
-        dict: The initial positions of the nodes.
-    """
-    net.barnes_hut()
-    return {node['id']: (node['x'], node['y']) for node in net.nodes}
-
-
 def save_and_display_graph(net):
-    """
-    Save the network graph to an HTML file and display it in Streamlit.
-
-    Args:
-        net (Network): The network graph.
-
-    Returns:
-        str: The HTML content of the network graph.
-    """
     with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".html") as tmp_file:
         net.write_html(tmp_file.name, notebook=True)
         tmp_file.flush()
         with open(tmp_file.name, "r", encoding="utf-8") as f:
             return f.read()
 
-
 def update_placeholders_and_graph(agent_state_value, placeholders, graph_placeholder, previous_values, previous_state):
-    """
-    Update the placeholders and graph in the Streamlit app based on the current state.
-
-    Args:
-        agent_state_value (dict): The current state value of the agent.
-        placeholders (dict): The placeholders to display the steps.
-        graph_placeholder (Streamlit.placeholder): The placeholder to display the network graph.
-        previous_values (dict): The previous values of the placeholders.
-        previous_state: The previous state of the agent.
-
-    Returns:
-        tuple: Updated previous_values and previous_state.
-    """
     current_state = agent_state_value.get("curr_state")
 
-    # Update graph
     if current_state:
         net = create_network_graph(current_state)
         graph_html = save_and_display_graph(net)
@@ -123,7 +75,6 @@ def update_placeholders_and_graph(agent_state_value, placeholders, graph_placeho
         with graph_placeholder.container():
             components.html(graph_html, height=400, scrolling=True)
 
-    # Update placeholders only if the state has changed (i.e., we've finished visiting the previous node)
     if current_state != previous_state and previous_state is not None:
         for key, placeholder in placeholders.items():
             if key in previous_values and previous_values[key] is not None:
@@ -133,28 +84,13 @@ def update_placeholders_and_graph(agent_state_value, placeholders, graph_placeho
                     formatted_value = previous_values[key]
                 placeholder.markdown(f"{formatted_value}")
 
-    # Store current values for the next iteration
     for key in placeholders:
         if key in agent_state_value:
             previous_values[key] = agent_state_value[key]
 
     return previous_values, current_state
 
-
 def execute_plan_and_print_steps(inputs, plan_and_execute_app, placeholders, graph_placeholder, recursion_limit=25):
-    """
-    Execute the plan and print the steps in the Streamlit app.
-
-    Args:
-        inputs (dict): The inputs to the plan.
-        plan_and_execute_app (StateGraph): The compiled plan and execute app.
-        placeholders (dict): The placeholders to display the steps.
-        graph_placeholder (Streamlit.placeholder): The placeholder to display the network graph.
-        recursion_limit (int): The recursion limit for the plan execution.
-
-    Returns:
-        str: The final response from the agent.
-    """
     config = {"recursion_limit": recursion_limit}
     agent_state_value = None
     progress_bar = st.progress(0)
@@ -174,7 +110,6 @@ def execute_plan_and_print_steps(inputs, plan_and_execute_app, placeholders, gra
                 if step >= recursion_limit:
                     break
 
-        # After the loop, update placeholders with the final state
         for key, placeholder in placeholders.items():
             if key in previous_values and previous_values[key] is not None:
                 if isinstance(previous_values[key], list):
@@ -190,49 +125,50 @@ def execute_plan_and_print_steps(inputs, plan_and_execute_app, placeholders, gra
 
     return response
 
-
 def main():
-    """
-    Main function to run the Streamlit app.
-    """
-    st.set_page_config(layout="wide")  # Use wide layout
+    st.set_page_config(layout="wide")
     
-    st.title("Real-Time Agent Execution Visualization")
-    
-    # Load your existing agent creation function
-    plan_and_execute_app = create_agent()
+    st.title("ESG 報告分析代理 (FAISS 版本)")
+    st.write("此代理使用原專案架構，透過三個獨立的 FAISS 資料庫來回答問題。")
 
-    # Get the user's question
-    question = st.text_input("Enter your question:", "what is the class that the proffessor who helped the villain is teaching?")
+    try:
+        plan_and_execute_app = create_agent()
+    except Exception as e:
+        st.error(f"初始化代理時出錯: {e}")
+        st.error("請確保您已成功執行 `vectorize_esg_faiss.py` 腳本，並且 FAISS 資料庫已存在。")
+        return
 
-    if st.button("Run Agent"):
-        inputs = {"question": question}
+    question = st.text_input("請輸入您關於 ESG 報告的問題:", "報告中揭露的溫室氣體排放量是多少？主要的減排措施有哪些？")
+
+    if st.button("執行代理"):
+        if not question:
+            st.warning("請輸入一個問題。")
+            return
+
+        inputs = {"question": question, "aggregated_context": "", "past_steps": [], "tool": ""}
         
-        # Create a row for the graph
-        st.markdown("**Graph**")
+        st.markdown("---下面是代理的執行過程---")
         graph_placeholder = st.empty()
 
-        # Create three columns for the other variables
-        col1, col2, col3 = st.columns([1, 1, 4])
-        
+        col1, col2, col3 = st.columns([1, 1, 3])
         with col1:
-            st.markdown("**Plan**")
+            st.markdown("**📜 計畫**")
         with col2:
-            st.markdown("**Past Steps**")
+            st.markdown("**✅ 過去步驟**")
         with col3:
-            st.markdown("**Aggregated Context**")
+            st.markdown("**🧠 累積上下文**")
 
-        # Initialize placeholders for each column
         placeholders = {
             "plan": col1.empty(),
             "past_steps": col2.empty(),
             "aggregated_context": col3.empty(),
         }
 
-        response = execute_plan_and_print_steps(inputs, plan_and_execute_app, placeholders, graph_placeholder, recursion_limit=45)
-        st.write("Final Answer:")
-        st.write(response)
-
+        with st.spinner("代理正在思考中，請稍候..."):
+            response = execute_plan_and_print_steps(inputs, plan_and_execute_app, placeholders, graph_placeholder, recursion_limit=45)
+        
+        st.markdown("---最終答案---")
+        st.success(response)
 
 if __name__ == "__main__":
     main()
