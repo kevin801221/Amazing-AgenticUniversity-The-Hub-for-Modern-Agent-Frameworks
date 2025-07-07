@@ -119,7 +119,7 @@ desktop.ini
 # Anaconda
 .conda/
 *.conda
-*.ipynb
+# *.ipynb
 
 # Environments
 .env
@@ -133,4 +133,4 @@ venv.bak/
 docs/
 output/
 *.pdf 
-helper_functions.py
+# helper_functions.py
