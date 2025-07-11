@@ -60,6 +60,7 @@ This archive comes from my original repo —
 | `Short-Long_term_memory_simulation/` | An application for simulating short and long term memory |
 | `ai-agent-papers/` | A curated collection of research papers on AI Agents, covering capabilities, architectures, and real-world applications, updated biweekly. |
 | `context-Engineering/` | A complete tutorial on context engineering for AI agents. |
+| `RAG_Techniques/` | A complete tutorial on RAG techniques. |
 | `langgraph-bigtool/` | A library for creating LangGraph agents that can access a large number of tools. |
 | `Controllable-RAG-Agent/` | A sophisticated RAG agent implementation with controllable parameters for Harry Potter knowledge base. |
 | `business-intelligence-ai-SQL-dashboard/` | An AI-driven dashboard system that connects to SQL databases and creates visualizations without writing queries. |
@@ -70,6 +71,7 @@ This archive comes from my original repo —
 
 ## 🆕 Update Log     
 
+- **2025/07/11** — Added `RAG_Techniques/` with a complete tutorial on RAG techniques.
 - **2025/07/07** — Added `business-intelligence-ai-SQL-dashboard/` with an AI-driven dashboard system for SQL databases.
 - **2025/07/07** — Added `Controllable-RAG-Agent/` with a sophisticated RAG agent for Harry Potter knowledge base.
 - **2025/07/03** — Added `langgraph-bigtool/` with a library for creating LangGraph agents that can access a large number of tools.
