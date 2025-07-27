@@ -54,6 +54,7 @@ This archive comes from my original repo —
 ## 📦 Projects Overview   
 | Folder | Description |
 |--------|-------------|
+| `muti-agent_crewai/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
 | `langgraph_agents/` | Stateful agents with LangGraph |
 | `autogen_planner/` | Multi-agent coordination using AutoGen |
 | `Agentic_Stock_Insight/` | An application for stock data insights, combining RAG workflows to extract insights from news and financial data. |
@@ -71,6 +72,7 @@ This archive comes from my original repo —
 
 ## 🆕 Update Log     
 
+- **2025/07/27** — Added `muti-agent_crewai/` with a multi-agent system for stock insights.
 - **2025/07/11** — Added `RAG_Techniques/` with a complete tutorial on RAG techniques.
 - **2025/07/07** — Added `business-intelligence-ai-SQL-dashboard/` with an AI-driven dashboard system for SQL databases.
 - **2025/07/07** — Added `Controllable-RAG-Agent/` with a sophisticated RAG agent for Harry Potter knowledge base.
