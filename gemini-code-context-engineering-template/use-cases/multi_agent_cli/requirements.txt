@@ -1,0 +1,5 @@
+pydantic-ai
+google-api-python-client
+google-auth-oauthlib
+python-dotenv
+brave-search-api-client
