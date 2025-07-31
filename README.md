@@ -55,7 +55,7 @@ This archive comes from my original repo —
 | Folder | Description |
 |--------|-------------|
 | `muti-agent_crewai/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
-| `langgraph_agents/` | Stateful agents with LangGraph |
+| `langgraph_agents/` | Stateful agents with LangGraph | 
 | `autogen_planner/` | Multi-agent coordination using AutoGen |
 | `Agentic_Stock_Insight/` | An application for stock data insights, combining RAG workflows to extract insights from news and financial data. |
 | `Short-Long_term_memory_simulation/` | An application for simulating short and long term memory |
