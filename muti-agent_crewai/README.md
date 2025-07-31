@@ -100,7 +100,7 @@ pip install -r requirements.txt
 確保您的 Ollama 服務正在本地運行。如果您是使用 Poetry，請確保已處於 `poetry shell` 環境中。然後執行 `main.py`：
 
 ```bash
-python main.py
+python main.py or poetry run python main.py
 ```
 
 程式將會提示您輸入想分析的公司名稱，例如 `Apple` 或 `台積電`，之後代理團隊便會開始工作。
