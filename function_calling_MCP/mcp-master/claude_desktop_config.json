@@ -1,0 +1,13 @@
+{
+    "mcpServers": {
+        "shell_helper": {
+            "command": "uv",
+            "args": [
+                "--directory",
+                "C:/temp/mcp_test",
+                "run",
+                "server_shell_helper.py"
+            ]
+        }
+    }
+}

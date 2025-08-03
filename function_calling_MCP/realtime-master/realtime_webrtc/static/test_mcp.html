@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pure JavaScript MCP Client</title>
+</head>
+<body>
+    <h1>MCP Client</h1>
+    <button onclick="callTool('fetch_git_mcp_document', {})">Call Add Tool</button>
+    <button onclick="getResource('file:///logs/app.log')">Get Log File</button>
+
+    <script>
+    const eventSource = new EventSource('https://gitmcp.io/idosal/git-mcp');
+
+    eventSource.onopen = () => console.log('Connected to MCP server');
+    eventSource.onerror = (error) => console.error('Error connecting:', error);
+    eventSource.onmessage = (event) => handleMessage(event.data);
+
+    function handleMessage(data) {
+        try {
+            const message = JSON.parse(data);
+            console.log('Received message:', message);
+        } catch (error) {
+            console.error('Error parsing message:', error);
+        }
+    }
+
+    function sendRequest(type, payload) {
+        const message = JSON.stringify({ type, payload });
+        fetch('https://gitmcp.io/idosal/git-mcp', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: message
+        }).catch(error => console.error('Error sending request:', error));
+    }
+
+    function callTool(toolName, args) {
+        sendRequest('call_tool', { name: toolName, arguments: args });
+    }
+
+    function getResource(uri) {
+        sendRequest('get_resource', { uri: uri });
+    }
+    </script>
+</body>
+</html>

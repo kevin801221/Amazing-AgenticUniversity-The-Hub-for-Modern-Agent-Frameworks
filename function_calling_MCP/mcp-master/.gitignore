@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.cache
+
+# Virtual environments
+.venv
+
+# vscode
+.vscode/
+
+# secret
+.env
+mcp_servers.json
+
+# output
+mcp.html
+
+

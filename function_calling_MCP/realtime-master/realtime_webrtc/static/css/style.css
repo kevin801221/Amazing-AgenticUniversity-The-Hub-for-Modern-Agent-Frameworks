@@ -1,0 +1,63 @@
+body {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    /* 確保容器不會超過視窗高度 */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-area {
+    min-height: 200px;
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    /* 添加捲軸設定 */
+    overflow-y: auto;
+    max-height: calc(90vh - 200px); /* 減去其他元素的高度 */
+    /* 美化捲軸 */
+    scrollbar-width: thin;
+    scrollbar-color: #6c757d #f8f9fa;
+}
+
+/* 為 Webkit 瀏覽器（Chrome、Safari）自定義捲軸樣式 */
+.text-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.text-area::-webkit-scrollbar-track {
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.text-area::-webkit-scrollbar-thumb {
+    background-color: #6c757d;
+    border-radius: 4px;
+    border: 2px solid #f8f9fa;
+}
+
+.status-label {
+    font-size: 1.1em;
+    color: #495057;
+    font-weight: 500;
+    padding: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+.btn-primary {
+    padding: 10px 25px;
+    font-size: 1.1em;
+}
