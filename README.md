@@ -11,7 +11,9 @@ Inside, you’ll find **hands-on tutorials, code examples, and full project demo
 - LlamaIndex
 - RAG / CRAG
 - OpenAI Function Calling
+- Realtime WebRTC
 - More coming soon...
+
 
 I'll update this repo every week, even every day maybe. If you have any questions, please feel free to ask. ""Your Stars are my motivation"" to continue updating this repo.🤩 
 ---
@@ -31,6 +33,7 @@ agentic_u/
 ├── autogen_planner/
 ├── rag_crag_search_demo/
 ├── openai_function_calling/
+├── realtime_webrtc/
 ├── agentic_ui_streamlit/
 ├── notebook_demos/
 ├── Controllable-RAG-Agent/
@@ -54,6 +57,7 @@ This archive comes from my original repo —
 ## 📦 Projects Overview   
 | Folder | Description |
 |--------|-------------|
+| `function_calling_MCP/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
 | `muti-agent_crewai/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
 | `langgraph_agents/` | Stateful agents with LangGraph | 
 | `autogen_planner/` | Multi-agent coordination using AutoGen |
@@ -72,6 +76,7 @@ This archive comes from my original repo —
 
 ## 🆕 Update Log     
 
+- **2025/08/03** — Added `function_calling_MCP/` with a multi-agent system for stock insights.
 - **2025/07/27** — Added `muti-agent_crewai/` with a multi-agent system for stock insights.
 - **2025/07/11** — Added `RAG_Techniques/` with a complete tutorial on RAG techniques.
 - **2025/07/07** — Added `business-intelligence-ai-SQL-dashboard/` with an AI-driven dashboard system for SQL databases.
