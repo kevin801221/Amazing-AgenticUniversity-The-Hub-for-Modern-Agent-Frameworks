@@ -12,6 +12,7 @@ Inside, you’ll find **hands-on tutorials, code examples, and full project demo
 - RAG / CRAG
 - OpenAI Function Calling
 - Realtime WebRTC
+- Ollama new UI app: https://ollama.com/blog/new-app
 - More coming soon...
 
 
@@ -38,6 +39,13 @@ agentic_u/
 ├── notebook_demos/
 ├── Controllable-RAG-Agent/
 ├── business-intelligence-ai-SQL-dashboard/
+├── ollama_pdf_rag/
+├── mcp-sql-dashboard/
+├── Langgraph_BuildingAmbientAgents/
+├── ai-experiments/
+├── Flowise/
+├── Langgraph_BuildingAmbientAgents/
+├── langgraph/
 ```
 
 ---
@@ -57,6 +65,7 @@ This archive comes from my original repo —
 ## 📦 Projects Overview   
 | Folder | Description |
 |--------|-------------|
+| `langgraph/` | LangGraph is a low-level orchestration framework for building, managing, and deploying stateful agents. |
 | `function_calling_MCP/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
 | `muti-agent_crewai/` | A multi-agent system for stock insights, combining RAG workflows to extract insights from news and financial data. |
 | `langgraph_agents/` | Stateful agents with LangGraph | 
@@ -76,6 +85,7 @@ This archive comes from my original repo —
 
 ## 🆕 Update Log     
 
+- **2025/08/07** — Added `langgraph/` with a low-level orchestration framework for building, managing, and deploying stateful agents.
 - **2025/08/03** — Added `function_calling_MCP/` with a multi-agent system for stock insights.
 - **2025/07/27** — Added `muti-agent_crewai/` with a multi-agent system for stock insights.
 - **2025/07/11** — Added `RAG_Techniques/` with a complete tutorial on RAG techniques.

@@ -1,0 +1,51 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langgraph-sdk"
+version = "0.2.0"
+description = "SDK for interacting with LangGraph API"
+authors = []
+requires-python = ">=3.9"
+readme = "README.md"
+license = "MIT"
+license-files = ['LICENSE']
+dependencies = [
+    "httpx>=0.25.2",
+    "orjson>=3.10.1",
+]
+
+[project.urls]
+Repository = "https://www.github.com/langchain-ai/langgraph"
+
+[dependency-groups]
+dev = [
+  "ruff",
+  "codespell",
+  "pytest",
+  "pytest-asyncio",
+  "pytest-mock",
+  "pytest-watch",
+  "mypy",
+]
+
+[tool.hatch.build.targets.wheel]
+include = ["langgraph_sdk"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config --durations=5 -vv"
+asyncio_mode = "auto"
+
+[tool.uv]
+default-groups = ['dev']
+
+[tool.ruff]
+lint.select = [
+  "E",  # pycodestyle
+  "F",  # Pyflakes
+  "UP", # pyupgrade
+  "B",  # flake8-bugbear
+  "I",  # isort
+]
+lint.ignore = ["E501", "B008"]
